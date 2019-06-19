@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:flowable="http://flowable.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.flowable.org/processdef">
+  <process id="restDrivenProcess" name="Rest Driven Process" isExecutable="true">
+    <startEvent id="startEvent1"></startEvent>
+    <userTask id="secondRequest" name="Wait For Second Request"></userTask>
+    <sequenceFlow id="sid-4968A664-5150-426B-BA33-363D24EE57B8" sourceRef="startEvent1" targetRef="secondRequest"></sequenceFlow>
+    <userTask id="otherTask" name="Do Something Else"></userTask>
+    <sequenceFlow id="sid-6C4DE4DF-7F7F-4494-8847-AF2C4B6E0EEA" sourceRef="secondRequest" targetRef="otherTask"></sequenceFlow>
+    <endEvent id="sid-7FBBC090-0AF1-4B6F-84B8-40BA09F03F0A"></endEvent>
+    <sequenceFlow id="sid-950D5F09-4C7E-42B4-ABFE-6664DCC8B327" sourceRef="otherTask" targetRef="sid-7FBBC090-0AF1-4B6F-84B8-40BA09F03F0A"></sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_restDrivenProcess">
+    <bpmndi:BPMNPlane bpmnElement="restDrivenProcess" id="BPMNPlane_restDrivenProcess">
+      <bpmndi:BPMNShape bpmnElement="startEvent1" id="BPMNShape_startEvent1">
+        <omgdc:Bounds height="30.0" width="30.0" x="100.0" y="163.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="secondRequest" id="BPMNShape_secondRequest">
+        <omgdc:Bounds height="80.0" width="100.0" x="150.0" y="135.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="otherTask" id="BPMNShape_otherTask">
+        <omgdc:Bounds height="80.0" width="100.0" x="285.0" y="135.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-7FBBC090-0AF1-4B6F-84B8-40BA09F03F0A" id="BPMNShape_sid-7FBBC090-0AF1-4B6F-84B8-40BA09F03F0A">
+        <omgdc:Bounds height="28.0" width="28.0" x="430.0" y="161.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="sid-950D5F09-4C7E-42B4-ABFE-6664DCC8B327" id="BPMNEdge_sid-950D5F09-4C7E-42B4-ABFE-6664DCC8B327">
+        <omgdi:waypoint x="384.95000000000005" y="175.0"></omgdi:waypoint>
+        <omgdi:waypoint x="430.0" y="175.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-6C4DE4DF-7F7F-4494-8847-AF2C4B6E0EEA" id="BPMNEdge_sid-6C4DE4DF-7F7F-4494-8847-AF2C4B6E0EEA">
+        <omgdi:waypoint x="249.94999999995267" y="175.0"></omgdi:waypoint>
+        <omgdi:waypoint x="284.99999999997203" y="175.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-4968A664-5150-426B-BA33-363D24EE57B8" id="BPMNEdge_sid-4968A664-5150-426B-BA33-363D24EE57B8">
+        <omgdi:waypoint x="129.94087364020817" y="177.47091141938927"></omgdi:waypoint>
+        <omgdi:waypoint x="149.99999999999957" y="176.7629411764706"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
