@@ -6,10 +6,10 @@ import org.flowable.engine.TaskService;
 import org.flowable.engine.runtime.ProcessInstance;
 import org.flowable.task.api.Task;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.websocket.server.PathParam;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -34,7 +34,7 @@ public class ProcessController {
     }
 
     @GetMapping("/continue/{processInstanceId}")
-    public String continueProcess(@PathParam("processInstanceId") String processInstanceId) {
+    public String continueProcess(@PathVariable("processInstanceId") String processInstanceId) {
         List<Task> tasks = taskService.createTaskQuery().taskDefinitionKey("secondRequest").processInstanceId(processInstanceId).list();
 
         tasks.stream().forEach(task -> taskService.complete(task.getId()));
@@ -43,7 +43,7 @@ public class ProcessController {
     }
 
     @GetMapping("/movingOn/{processInstanceId}")
-    public List<String>  movingOn(@PathParam("processInstanceId") String processInstanceId) {
+    public List<String>  movingOn(@PathVariable("processInstanceId") String processInstanceId) {
         List<Task> tasks = taskService.createTaskQuery().taskDefinitionKey("otherTask").processInstanceId(processInstanceId).list();
 
         return tasks.stream().map(Task::getId).collect(Collectors.toList());
